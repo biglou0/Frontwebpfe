@@ -1,20 +1,4 @@
-@media (max-width: 768px) {
-  .content-item {
-    flex: 100%;
-  }
-}
 
-/* Media query for mobile phones */
-@media (max-width: 480px) {
-  header {
-    font-size: 1.5rem;
-  }
-
-  .content-item {
-    margin: 0.5rem;
-    padding: 0.5rem;
-  }
-}
 
 .container {
   padding: 0 2rem;
