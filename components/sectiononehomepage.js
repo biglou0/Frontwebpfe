@@ -28,7 +28,7 @@ const Contents = () => {
           <br />
           avoir une expérience pleinement satisfaite.
         </p>
-        <p className="text-xl text-gray-500">Khaled Erjili - PRÉSIDENT PDG</p>
+        {/* <p className="text-xl text-gray-500">Khaled Erjili - PRÉSIDENT PDG</p> */}
       </div>
       <div className="lg:grid lg:grid-cols-2 px-12">
         <div className="col-span-1 space-y-6 py-12 text-center px-8">

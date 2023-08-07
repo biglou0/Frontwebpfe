@@ -30,6 +30,25 @@
   font-size: 1.3em;
 }
 
+@media (max-width: 768px) {
+  .content-item {
+    flex: 100%;
+  }
+}
+
+/* Media query for mobile phones */
+@media (max-width: 480px) {
+  header {
+    font-size: 1.5rem;
+  }
+
+  .content-item {
+    margin: 0.5rem;
+    padding: 0.5rem;
+  }
+}
+
+
 @media screen and (min-width: 799px) {
   .google-map {
     height: 80vh;

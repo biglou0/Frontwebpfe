@@ -42,7 +42,7 @@ const ContentThere = () => {
     }}
   >
     <p className="text-white text-4xl font-bold">
-      Ride, Le Taxi Qui <br /> Répond Aux Attentes <br /> D’aujourd’hui
+    Tunisie Uber, Le Taxi Qui <br /> Répond Aux Attentes <br /> D’aujourd’hui
     </p>
 
     <div>
@@ -67,10 +67,10 @@ const ContentThere = () => {
 >
   <Image
     src="/imageapp.png"
-    height={550} // Set the desired height of the top image
-    width={450} // Set the desired width of the top image
+    height={450} // Set the desired height of the top image
+    width={360} // Set the desired width of the top image
     alt="Overlay Image"
-    style={{ marginTop: "130px", }}
+    style={{ marginTop: "90px", }}
   />
 </div>
 

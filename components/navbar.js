@@ -13,7 +13,7 @@ import {
 } from "react-icons/fa";
 import Image from "next/legacy/image";
 import Logo from "../public/logo.png";
-import Logoo from "../public/logod.png";
+import Logoo from "../public/logow.jpg";
 
 
 const Navbar = () => {
@@ -103,7 +103,13 @@ const Navbar = () => {
         <div className="container flex flex-wrap justify-between items-center mx-auto">
           <Link href="/" legacyBehavior>
             <a href="#" className="flex">
-              <Image src={Logoo} alt="Logo" />
+              <Image src={Logoo} alt="Logo"style={{
+    width: '200px', // Set the desired width of the circle
+    height: '200px', // Set the desired height of the circle
+    borderRadius: '50%', // Make the image circular
+    objectFit: 'cover', // Crop the image while maintaining aspect ratio
+    objectPosition: 'center top', // Adjust the vertical position of the image within the circle
+  }}/>
             </a>
           </Link>
           <div className="flex md:order-2">

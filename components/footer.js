@@ -14,7 +14,7 @@ import {
   FaWhatsapp,
 } from "react-icons/fa";
 import Image from "next/legacy/image";
-import Logo from "../public/logo.png";
+import Logo from "../public/logow.jpg";
 const footer = () => {
   return (
     <div>
@@ -51,10 +51,16 @@ const footer = () => {
           </div>
           <div className="grid lg:grid-cols-4 gap-8">
             <div className="col-span-1 space-y-8">
-              <Image src={Logo} alt="Logo" />
+            <Image src={Logo} alt="Logo"style={{
+    width: '200px', // Set the desired width of the circle
+    height: '200px', // Set the desired height of the circle
+    borderRadius: '50%', // Make the image circular
+    objectFit: 'cover', // Crop the image while maintaining aspect ratio
+    objectPosition: 'center top', // Adjust the vertical position of the image within the circle
+  }}/>
 
               <p className="text-gray-500">
-              RideUp fournit des services de voiture dans la région d'Ariana depuis 2023.
+              Tunisie Uber fournit des services de voiture dans la région d'Ariana depuis 2023.
                 Ce qui a commencé comme une petite entreprise est devenu un premier ministre
                 compagnie  de transport .
               </p>
