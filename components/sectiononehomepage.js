@@ -1,4 +1,4 @@
-/* eslint-disable @next/next/link-passhref */
+
 /* eslint-disable jsx-a11y/alt-text */
 import { FaHashtag } from "react-icons/fa";
 import { Swiper, SwiperSlide } from "swiper/react";

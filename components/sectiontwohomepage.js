@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-/* eslint-disable @next/next/link-passhref */
+
 import Link from "next/link";
 
 const ContentTwo = () => {
