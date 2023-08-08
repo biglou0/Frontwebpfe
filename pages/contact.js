@@ -31,7 +31,7 @@ const Contact = () => {
     // Prevent the default submit and page reload
     e.preventDefault()
 
-   
+    const TelRegex = /^[0-9]{8}$/;
     if (!TelRegex.test(Tel)) {
    
       return;
