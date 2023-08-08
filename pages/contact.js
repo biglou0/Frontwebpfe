@@ -44,7 +44,7 @@ const Contact = () => {
     }
     // Handle validations
     axios
-      .post("https://backend-web-pfe.onrender.com/Con/add", { Nom,Prenom,Email,Cin,Tel,Message })
+      .post("https://adminpfe.adaptable.app/Con/add", { Nom,Prenom,Email,Cin,Tel,Message })
       .then(response => {
     
         console.log(response)

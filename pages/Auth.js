@@ -75,7 +75,7 @@ const Auth = () => {
 		
 			// Handle validations
 			axios
-			  .post("https://backend-web-pfe.onrender.com/Chauff/loginch", { email, password })
+			  .post("https://adminpfe.adaptable.app/Chauff/loginch", { email, password })
 			  .then(response => {
 				const user = response.data
 				

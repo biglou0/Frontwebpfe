@@ -72,7 +72,7 @@ const [cinError, setCinError] = useState("");
 
     // Handle validations
     axios
-      .post("https://backend-web-pfe.onrender.com/Chauff/AjoutChauf", { Nom, Prenom, email, phone,photoAvatar,photoCin, photoPermisRec,photoPermisVer,photoVtc,gender ,DateNaissance ,Nationalite , cnicNo ,address,postalCode}
+      .post("https://adminpfe.adaptable.app/Chauff/AjoutChauf", { Nom, Prenom, email, phone,photoAvatar,photoCin, photoPermisRec,photoPermisVer,photoVtc,gender ,DateNaissance ,Nationalite , cnicNo ,address,postalCode}
       ,{ headers: {
         'Content-Type': 'multipart/form-data',
       },})
