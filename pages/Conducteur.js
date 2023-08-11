@@ -49,102 +49,111 @@ const [cinError, setCinError] = useState("");
   
     return `${year}-${month}-${day}`;
   };
-  const handleSubmit = e => {
-    // Prevent the default submit and page reload
-    e.preventDefault()
-
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+  
     const phoneRegex = /^[0-9]{8,14}$/;
     if (!phoneRegex.test(phone)) {
       setPhoneError("La longueur doit être entre 8 et 14");
     } else {
       setPhoneError(""); // Reset phone error if valid
     }
-    
+  
     const cinRegex = /^[0-9]{8,12}$/;
     if (!cinRegex.test(cnicNo)) {
       setCinError("La longueur doit être entre 8 et 12");
     } else {
       setCinError(""); // Reset CIN error if valid
     }
-    
+  
     // Check if either phone or CIN has an error message
     if (phoneError || cinError) {
       return;
     }
   
-  const data = new FormData();
-
-  data.append('photo',photoAvatar[0])
-  data.append('cin',photoCin[0])
-  data.append('permisrec',photoPermisRec[0])
-  data.append('permisver',photoPermisVer[0])
-  data.append('vtc',photoVtc[0])
+    const data = new FormData();
+    data.append("photo", photoAvatar[0]);
+    data.append("cin", photoCin[0]);
+    data.append("permisrec", photoPermisRec[0]);
+    data.append("permisver", photoPermisVer[0]);
+    data.append("vtc", photoVtc[0]);
   
-
-  console.log("fileeeeee",data)
-
-
-
-
-    // Handle validations
-    axios
-      .post("https://adminpfe.adaptable.app/Chauff/AjoutChauf", { Nom, Prenom, email, phone,photoAvatar,photoCin, photoPermisRec,photoPermisVer,photoVtc,gender ,DateNaissance ,Nationalite , cnicNo ,address,postalCode}
-      ,{ headers: {
-        'Content-Type': 'multipart/form-data',
-      },})
-     
-      .then(response => {
-        const newUser = response.data.uses
-        console.log("res1000",newUser)
-        console.log("fileeee*//**e",photoAvatar)
-        setSubmitStatus("Merci Pour Votre inscription votre dossier sera traité dans les prochains jours");
-        setNom("");
-        setPrenom("");
-        setemail("");
-        setphone("");
-        document.getElementById('login').reset();
-        setgender("");
-        setDateNaissance("");
-        setNationalite("");
-        setcnicNo("");
-        setaddress("");
-        setpostalCode("");
-        setEmailError("");
-      
-      console.log("file",response.data)
-        //navigate("/users")
-        setTimeout(() => {
-          setSubmitStatus("");
-        }, 10000);
+    console.log("fileeeeee", data);
   
-     
-      
-                    // Handle response
-      })
-     
-  .catch(err =>{
-    console.warn(err)
-    if (err.response ) {
-      if (err.response.status === 403) {
-        setEmailError("l'email existe déjà");
-      } else {
-        setEmailError("");
-      }
-      if (err.response.data.phoneExists) {
-        setPhoneError("Phone already exists");
-      } else {
-        setPhoneError("");
-      }
-      if (err.response.data.cinExists) {
-        setCinError("CIN already exists");
-      } else {
-        setCinError("");
+    try {
+      // Handle validations
+      const response = await axios.post(
+        "https://adminpfe.adaptable.app/Chauff/AjoutChauf",
+        {
+          Nom,
+          Prenom,
+          email,
+          phone,
+          photoAvatar,
+          photoCin,
+          photoPermisRec,
+          photoPermisVer,
+          photoVtc,
+          gender,
+          DateNaissance,
+          Nationalite,
+          cnicNo,
+          address,
+          postalCode,
+        },
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+  
+      const newUser = response.data.uses;
+      console.log("res1000", newUser);
+      console.log("fileeee*//**e", photoAvatar);
+      setSubmitStatus(
+        "Merci Pour Votre inscription votre dossier sera traité dans les prochains jours"
+      );
+      setNom("");
+      setPrenom("");
+      setemail("");
+      setphone("");
+      document.getElementById("login").reset();
+      setgender("");
+      setDateNaissance("");
+      setNationalite("");
+      setcnicNo("");
+      setaddress("");
+      setpostalCode("");
+      setEmailError("");
+  
+      console.log("file", response.data);
+  
+      setTimeout(() => {
+        setSubmitStatus("");
+      }, 10000);
+    } catch (err) {
+      console.warn(err);
+      if (err.response) {
+        if (err.response.status === 403) {
+          setEmailError("l'email existe déjà");
+        } else {
+          setEmailError("");
+        }
+        if (err.response.data.phoneExists) {
+          setPhoneError("Phone already exists");
+        } else {
+          setPhoneError("");
+        }
+        if (err.response.data.cinExists) {
+          setCinError("CIN already exists");
+        } else {
+          setCinError("");
+        }
       }
     }
- 
-  })
+  };
   
-    }
 
   return (
     <div>
@@ -258,7 +267,7 @@ const [cinError, setCinError] = useState("");
         </div>
 
 
-        
+
         <div className="col-span-1 row-span-1 p-4 px-8 border">
   <label className="block mb-2 text-gray-900">Date De Naissance</label>
   <input
