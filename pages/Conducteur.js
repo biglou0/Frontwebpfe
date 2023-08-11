@@ -37,9 +37,9 @@ const [cinError, setCinError] = useState("");
     // Prevent the default submit and page reload
     e.preventDefault()
 
-    const phoneRegex = /^[0-9]{8}$/;
+    const phoneRegex = /^[0-9]{14}$/;
     if (!phoneRegex.test(phone)) {
-      setPhoneError("La longueur doit être de 8");
+      setPhoneError("La longueur doit être de 14");
     } else {
       setPhoneError(""); // Reset phone error if valid
     }
