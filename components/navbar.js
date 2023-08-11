@@ -12,7 +12,7 @@ import {
   FaWhatsapp,
 } from "react-icons/fa";
 import Image from "next/legacy/image";
-import Logo from "../public/logo.png";
+// import Logo from "../public/logo.png";
 import Logoo from "../public/logofi.png";
 
 
