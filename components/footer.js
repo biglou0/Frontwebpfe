@@ -14,7 +14,7 @@ import {
   FaWhatsapp,
 } from "react-icons/fa";
 import Image from "next/legacy/image";
-import Logo from "../public/logow.jpg";
+import Logo from "../public/logofi.png";
 const footer = () => {
   return (
     <div>
@@ -86,7 +86,7 @@ const footer = () => {
             </div>
             <div className="col-span-1 space-y-8">
               <div className="flex flex-col space-y-2">
-                <p className="text-gray-600 font-medium">RideUP</p>
+                <p className="text-gray-600 font-medium">TunisieUber</p>
                 <p className="border-solid border border-amber-500  w-1/4 "></p>
               </div>
               <div className="flex flex-col space-y-4">
