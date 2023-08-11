@@ -32,21 +32,37 @@ const [cinError, setCinError] = useState("");
   const [values, setValues] = useState("");
 
 
-
+  const calculateMaxDate = () => {
+    const today = new Date();
+    const minBirthDate = new Date(today.getFullYear() - 18, today.getMonth(), today.getDate());
+  
+    const year = minBirthDate.getFullYear();
+    let month = minBirthDate.getMonth() + 1;
+    if (month < 10) {
+      month = `0${month}`;
+    }
+  
+    let day = minBirthDate.getDate();
+    if (day < 10) {
+      day = `0${day}`;
+    }
+  
+    return `${year}-${month}-${day}`;
+  };
   const handleSubmit = e => {
     // Prevent the default submit and page reload
     e.preventDefault()
 
-    const phoneRegex = /^[0-9]{14}$/;
+    const phoneRegex = /^[0-9]{8,14}$/;
     if (!phoneRegex.test(phone)) {
-      setPhoneError("La longueur doit être de 14");
+      setPhoneError("La longueur doit être entre 8 et 14");
     } else {
       setPhoneError(""); // Reset phone error if valid
     }
     
-    const cinRegex = /^[0-9]{8}$/;
+    const cinRegex = /^[0-9]{8,12}$/;
     if (!cinRegex.test(cnicNo)) {
-      setCinError("La longueur doit être de 8");
+      setCinError("La longueur doit être entre 8 et 12");
     } else {
       setCinError(""); // Reset CIN error if valid
     }
@@ -240,19 +256,21 @@ const [cinError, setCinError] = useState("");
             <option value="Femme">Femme</option>
           </select>
         </div>
+
+
+        
         <div className="col-span-1 row-span-1 p-4 px-8 border">
-              <label  className="block mb-2  text-gray-900 ">
-                Date De Naissance
-              </label>
-              <input
-                type="Date"
-                id="Date Naissance"
-                className="  text-gray-900  block w-full p-2.5 "
-                onChange={e => setDateNaissance(e.target.value)}
-                value={DateNaissance || ""}
-                required
-              />
-            </div>
+  <label className="block mb-2 text-gray-900">Date De Naissance</label>
+  <input
+    type="date"
+    id="Date Naissance"
+    className="text-gray-900 block w-full p-2.5"
+    onChange={e => setDateNaissance(e.target.value)}
+    value={DateNaissance || ""}
+    required
+    max={calculateMaxDate()}
+  />
+</div>
 
             <div className="col-span-1 row-span-1 p-4 px-8 border">
           <label className="block mb-2 text-gray-900">Nationalité</label>
