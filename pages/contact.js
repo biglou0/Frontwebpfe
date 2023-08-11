@@ -14,7 +14,6 @@ const Contact = () => {
   const [Nom, setNom] = useState()
     const [Prenom, setPrenom] = useState()
     const [Email, setEmail] = useState()
-    const [Cin, setCin] = useState()
     const [Tel, setTel] = useState()
 
     const [Message, setMessage] = useState()
@@ -32,26 +31,20 @@ const Contact = () => {
     // Prevent the default submit and page reload
     e.preventDefault()
 
-    const CinRegex = /^[0-9]{8}$/;
     const TelRegex = /^[0-9]{8}$/;
-    if (!CinRegex.test(Cin)) {
-   
-      return;
-    }
     if (!TelRegex.test(Tel)) {
    
       return;
     }
     // Handle validations
     axios
-      .post("https://adminpfe.adaptable.app/Con/add", { Nom,Prenom,Email,Cin,Tel,Message })
+      .post("https://adminpfe.adaptable.app/Con/add", { Nom,Prenom,Email,Tel,Message })
       .then(response => {
     
         console.log(response)
         setNom("");
         setPrenom("");
         setEmail("");
-        setCin("");
         setTel("");
         setMessage("");
         setSubmitStatus("Votre Message a été envoyé");
@@ -184,21 +177,7 @@ const Contact = () => {
                 required
               />
             </div>
-            <div className="col-span-1 row-span-1 p-4 px-8 border">
-              <label  className="block mb-2  text-gray-900 ">
-                CIN
-              </label>
-              <input
-                type="text"
-                id="cin"
-                className="  text-gray-900  block w-full p-2.5 "
-                placeholder="012345678"
-                onChange={e => setCin(e.target.value)}
-                value={Cin || ""}
-                required
-              />
-            </div>
-
+            
             <div className="col-span-1 row-span-1 p-4 px-8 border">
               <label  className="block mb-2  text-gray-900 ">
                 N° Téléphone
