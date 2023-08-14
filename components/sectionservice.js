@@ -23,8 +23,7 @@ const Service = () => {
         <FaDrawPolygon className="w-16 h-16 text-amber-600 bg-gray-100 rounded-full p-1" />
         <p className="text-2xl font-medium text-gray-600">PROFESSIONNEL</p>
         <p className="text-gray-600">
-        Nos chauffeurs de taxi sont des professionnels de la route, autorisés par la Wilaya avec un permis de confiance et une carte professionnelle, 
-        assurant ainsi votre sécurité et votre tranquillité d'esprit pendant votre trajet.
+        Nos chauffeurs de taxi sont des professionnels de la route, autorisés par la Wilaya avec un permis de confiance et une carte professionnelle.
        
         </p>
       </div>
@@ -32,7 +31,7 @@ const Service = () => {
         <FaBusAlt className="w-16 h-16 text-amber-600 bg-gray-100 rounded-full p-1" />
         <p className="text-2xl font-medium text-gray-600">RAPIDE</p>
         <p className="text-gray-600">
-        Grâce à l’accès dans l’application  à Google Maps et une parfaite connaissance de sa ville, votre chauffeur de taxi Ride vous fera gagnez du temps sur tous vos trajets.
+        Grâce à l’accès dans l’application  à Google Maps , votre chauffeur de taxi Ride vous fera gagnez du temps sur tous vos trajets.
         </p>
       </div>
     </div>

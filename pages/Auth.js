@@ -11,6 +11,7 @@ const Auth = () => {
 	const [submitStatus, setSubmitStatus] = useState("");
 	const [email, setemail] = useState()
 	const [emailError, setEmailError] = useState("");
+	const [compteError, setCompteError] = useState("");
 	const [passwordError, setPasswordError] = useState("");
 	const router = useRouter();
 	
@@ -31,7 +32,7 @@ const Auth = () => {
 	
 		// Handle validations
 		axios
-		  .post("https://backend-web-pfe.onrender.com/Chauff/reset", {email})
+		  .post("http://localhost:3001/Chauff/reset", {email})
 		
 		 
 		  .then(response => {
@@ -75,10 +76,16 @@ const Auth = () => {
 		
 			// Handle validations
 			axios
-			  .post("https://adminpfe.adaptable.app/Chauff/loginch", { email, password })
+			  .post("http://localhost:3001/Chauff/loginch", { email, password })
 			  .then(response => {
 				const user = response.data
-				
+				if (user.Cstatus === 'Désactivé') {
+					// Display a message to the user indicating that their account is disabled
+					console.log("Account is disabled.");
+					setCompteError("Votre Compte est Désactivé");
+					router.push("/Auth");
+					return;
+				} 
 				
 				console.log("role",user.role)
 				window.localStorage.setItem('user',JSON.stringify(response))
@@ -90,6 +97,7 @@ const Auth = () => {
 				localStorage.setItem("userAdress", user.address);
 				localStorage.setItem("userEmail", user.email);
 				localStorage.setItem("userId", user.id);
+				localStorage.setItem("Cstatus", user.Cstatus);
 				localStorage.setItem("isLoggedIn", true);
 				
 				
@@ -97,7 +105,8 @@ const Auth = () => {
 
 				setEmailError("");
 				setPasswordError("");
-				
+				setCompteError("");
+			
 				router.push("/profile");
 							// Handle response
 			  })
@@ -146,6 +155,7 @@ const Auth = () => {
 									<div className="center-wrap">
 										<div className="section text-center">
 											<h4 className="mb-4 pb-3">Log In</h4>
+											<strong>{compteError && <label className="text-red-500" >{compteError}</label>}</strong>
 											<div className="form-group">
 												<input type="email" name="logemail" className="form-style" placeholder="Email" id="logemail" autoComplete="off"
 													 onChange={e => setemail(e.target.value)}

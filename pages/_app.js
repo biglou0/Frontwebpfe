@@ -2,6 +2,8 @@ import "../styles/globals.css";
 import "../components/button.css"
 import "../components/logine.css"
 import "../components/tets.css"
+import "../components/por.css"
+
 
 
 

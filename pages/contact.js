@@ -15,6 +15,7 @@ const Contact = () => {
     const [Prenom, setPrenom] = useState()
     const [Email, setEmail] = useState()
     const [Tel, setTel] = useState()
+    const [phoneError, setPhoneError] = useState("");
 
     const [Message, setMessage] = useState()
 
@@ -31,10 +32,11 @@ const Contact = () => {
     // Prevent the default submit and page reload
     e.preventDefault()
 
-    const TelRegex = /^[0-9]{8}$/;
-    if (!TelRegex.test(Tel)) {
-   
-      return;
+    const phoneRegex = /^[0-9]{8,14}$/;
+    if (!phoneRegex.test(phone)) {
+      setPhoneError("La longueur doit être entre 8 et 14");
+    } else {
+      setPhoneError(""); // Reset phone error if valid
     }
     // Handle validations
     axios
@@ -57,6 +59,15 @@ const Contact = () => {
      
   .catch(err =>{
     console.warn(err)
+    if (err.response) {
+    
+      if (err.response.data.phoneExists) {
+        setPhoneError("Phone already exists");
+      } else {
+        setPhoneError("");
+      }
+      
+    }
 
   })
 

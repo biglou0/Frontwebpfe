@@ -1,6 +1,7 @@
+/* eslint-disable @next/next/no-img-element */
 
-import React, { useState } from "react";
-
+import React, { useState, useEffect } from 'react';
+import Select from 'react-select';
 import axios from "axios";
 
 const Conducteur = () => {
@@ -30,6 +31,26 @@ const [cinError, setCinError] = useState("");
     const [Message, setMessage] = useState()
 
   const [values, setValues] = useState("");
+
+
+
+  const [countries, setCountries] = useState([]);
+  const [selectedCountry, setSelectedCountry] = useState(null);
+
+  useEffect(() => {
+    fetch('https://restcountries.com/v3.1/all')
+      .then(response => response.json())
+      .then(data => {
+        const countriesData = data.map(country => ({
+          value: country.name.common,
+          label: country.idd.root + country.idd.suffixes,
+          icon: country.flags.png,
+        }));
+        setCountries(countriesData);
+      })
+      .catch(error => console.error('Error fetching countries:', error));
+  }, []);
+
 
 
   const calculateMaxDate = () => {
@@ -237,21 +258,28 @@ const [cinError, setCinError] = useState("");
               {cinError && <label className="text-red-500">{cinError}</label>}
             </div>
 
-            <div className="col-span-1 row-span-1 p-4 px-8 border">
-              <label  className="block mb-2  text-gray-900 ">
-                N° Téléphone
-              </label>
-              <input
-                type="text"
-                id="tel"
-                className="  text-gray-900  block w-full p-2.5 "
-                placeholder="012345678"
-                onChange={e => setphone(e.target.value)}
-                value={phone || ""}
-                required
-              />
-              {phoneError && <label className="text-red-500">{phoneError}</label>}
+            <div>
+      <div className="col-span-1 row-span-1 p-4 px-8 border">
+        <label className="block mb-2 text-gray-900">
+          Sélectionnez un pays
+        </label>
+        <Select
+          options={countries}
+          value={selectedCountry}
+          onChange={value => setSelectedCountry(value)}
+          getOptionLabel={option => (
+            <div>
+              <img src={option.icon} alt={option.label} style={{ width: '20px', height: '15px', marginRight: '5px' }} />
+              {option.label}
             </div>
+          )}
+          isSearchable
+          placeholder="Select a country"
+        />
+      </div>
+      </div>
+
+            
             <div className="col-span-1 row-span-1 p-4 px-8 border">
           <label className="block mb-2 text-gray-900">Genre</label>
           <select
