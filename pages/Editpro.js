@@ -40,7 +40,7 @@ const [emailError, setEmailError] = useState("");
     }, [id]);
 
     const getSingleUser = async (id)  => {
-        const response = await axios.get(`http://localhost:3001/Chauff/searchchauf/${id}`);
+        const response = await axios.get(`https://adminpfe.adaptable.app/Chauff/searchchauf/${id}`);
         if(response.status===200){
        setform({ ...response.data })
        console.log("data" , response.data)
@@ -86,7 +86,7 @@ const [emailError, setEmailError] = useState("");
     
         // Handle validations
         axios
-          .put(`http://localhost:3001/Chauff/updatechauf/${id}`,data
+          .put(`https://adminpfe.adaptable.app/Chauff/updatechauf/${id}`,data
           ,{ headers: {
             'Content-Type': 'multipart/form-data',
           },})
@@ -136,7 +136,7 @@ const [emailError, setEmailError] = useState("");
       
           // Handle validations
           axios
-            .put(`http://localhost:3001/Chauff/updatestatus/${id}`
+            .put(`https://adminpfe.adaptable.app/Chauff/updatestatus/${id}`
             ,{ headers: {
               'Content-Type': 'multipart/form-data',
             },})
