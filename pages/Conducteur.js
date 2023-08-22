@@ -26,6 +26,8 @@ const Conducteur = () => {
   const [emailError, setEmailError] = useState("");
 const [phoneError, setPhoneError] = useState("");
 const [cinError, setCinError] = useState("");
+const [nomError, setNomError] = useState("");
+const [prenError, setPrenError] = useState("");
 
 
     const [Message, setMessage] = useState()
@@ -86,9 +88,24 @@ const [cinError, setCinError] = useState("");
     } else {
       setCinError(""); // Reset CIN error if valid
     }
+    const nameRegex = /^[a-zA-Z\s]+$/;
+    if (!nameRegex.test(Nom)) {
+      setNomError("Le nom ne doit contenir que des lettres et des espaces.");
+    } else {
+      setNomError(""); // Reset CIN error if valid
+    }
+
+   
+    const prenomRegex = /^[a-zA-Z\s]+$/;
+    if (!prenomRegex.test(Prenom)) {
+  setPrenError("Le Prenom ne doit contenir que des lettres et des espaces.")
+     
+    }else {
+setPrenError("")
+    }
   
     // Check if either phone or CIN has an error message
-    if (phoneError || cinError) {
+    if (phoneError || cinError || prenomRegex || nameRegex ) {
       return;
     }
   
@@ -211,6 +228,8 @@ const [cinError, setCinError] = useState("");
                 value={Nom || ""}
                 required
               />
+
+{nomError && <label className="text-red-500">{nomError}</label>}
             </div>
             
             <div className="col-span-1 row-span-1  p-4 px-8 border">
@@ -226,6 +245,7 @@ const [cinError, setCinError] = useState("");
                 value={Prenom || ""}
                 required
               />
+              {prenError && <label className="text-red-500">{prenError}</label>}
             </div>
             <div className="col-span-1 row-span-1 p-4 px-8 border">
               <label  className="block mb-2  text-gray-900 ">
