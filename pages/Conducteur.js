@@ -255,7 +255,7 @@ setPrenError("")
                 type="email"
                 id="email"
                 className="  text-gray-900  block w-full p-2.5 "
-                placeholder="name@flowbite.com"
+                placeholder="name@gmail.com"
                 onChange={e => setemail(e.target.value)}
                 value={email || ""}
                 required
@@ -278,26 +278,21 @@ setPrenError("")
               {cinError && <label className="text-red-500">{cinError}</label>}
             </div>
 
-            <div>
-      <div className="col-span-1 row-span-1 p-4 px-8 border">
-        <label className="block mb-2 text-gray-900">
-          Sélectionnez un pays
-        </label>
-        <Select
-          options={countries}
-          value={selectedCountry}
-          onChange={value => setSelectedCountry(value)}
-          getOptionLabel={option => (
-            <div>
-              <img src={option.icon} alt={option.label} style={{ width: '20px', height: '15px', marginRight: '5px' }} />
-              {option.label}
+            <div className="col-span-1 row-span-1 p-4 px-8 border">
+              <label  className="block mb-2  text-gray-900 ">
+                N° Téléphone : 
+              </label>
+              <input
+                type="text"
+                id="cin"
+                className="  text-gray-900  block w-full p-2.5 "
+                placeholder="012345678"
+                onChange={e => setphone(e.target.value)}
+                value={phone || ""}
+                required
+              />
+              {phoneError && <label className="text-red-500">{phoneError}</label>}
             </div>
-          )}
-          isSearchable
-          placeholder="Select a country"
-        />
-      </div>
-      </div>
 
             
             <div className="col-span-1 row-span-1 p-4 px-8 border">
