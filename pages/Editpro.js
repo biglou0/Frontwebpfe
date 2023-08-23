@@ -71,11 +71,11 @@ const [emailError, setEmailError] = useState("");
    
     
      
-      const phoneRegex = /^[0-9]{8,14}$/;
-    if (!phoneRegex.test(form.phone)) {
-      setPhoneError("La longueur doit être entre 8 et 14");
-      return;
-    }
+      const phoneRegex = /^\+?[0-9]{8,14}$/;
+      if (!phoneRegex.test(form.phone)) {
+        setPhoneError("La longueur doit être entre 8 et 14");
+        return;
+      }
 
     const cinRegex = /^[0-9]{8,12}$/;
     if (!cinRegex.test(form.cnicNo)) {
