@@ -76,7 +76,7 @@ const Auth = () => {
 		
 			// Handle validations
 			axios
-			  .post("https://adminpfe.adaptable.app/Chauff/loginch", { email, password })
+			  .post("http://localhost:3001/Chauff/loginch", { email, password })
 			  .then(response => {
 				const user = response.data
 				if (user.Cstatus === 'Désactivé') {

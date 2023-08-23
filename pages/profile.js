@@ -95,7 +95,7 @@ const TaxiUser = () => {
             <div className="flex gap-2 px-2">
               
             <Link href="Editpro">
-            <button className="flex-1 rounded-full bg-blue-600 text-white antialiased font-bold hover:bg-blue-800 px-4 py-2">Edit Profile</button>
+            <button className="flex-1 rounded-full bg-blue-600 text-white antialiased font-bold hover:bg-blue-800 px-4 py-2"style={{ marginLeft: '110px' }}>Edit Profile</button>
     </Link>                
             </div>
             
