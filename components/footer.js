@@ -33,7 +33,7 @@ const footer = () => {
             <div className="col-span-1 flex flex-row space-x-3">
               <FaPhoneAlt className="w-12 h-12 text-amber-600  p-1" />
               <div className="space-y-2">
-                <p className="text-gray-500">PHONES</p>
+                <p className="text-gray-500">N° Télephones</p>
                 <p className="text-gray-600 font-medium">
                 RÉSERVER UN VOYAGE: (0481) 123 987 2411 OFFICE: (0481) 123 987 2412
                 </p>

@@ -19,7 +19,7 @@ const TaxiUser = () => {
   const [address, setAddress] = useState(null);
   const [id, setId] = useState(null);
   const [user , setUser] = useState()
-  console.log("qsddq",id)
+  // console.log("qsddq",id)
   useEffect(() => {
     const localStorageAvailable = typeof window !== 'undefined' && window.localStorage;
     if (localStorageAvailable) {
@@ -44,7 +44,7 @@ const TaxiUser = () => {
       const response = await axios.get(`https://adminpfe.adaptable.app/Chauff/searchchauf/${id}`);
       if(response.status===200){
         setUser({ ...response.data })
-     console.log("data" , response.data)
+    //  console.log("data" , response.data)
       }
     }
     

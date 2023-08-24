@@ -11,6 +11,7 @@ const Editpro = () => {
 
     const [photoAvatar, setphotoAvatar] = useState({file :[]})
     const [form, setform] = useState({})
+    const [forme, setForme] = useState({ oldPassword: '', newPassword: '' });
 
     const [id, setId] = useState(null);
     const router = useRouter();
@@ -18,6 +19,7 @@ const Editpro = () => {
     const [phoneError, setPhoneError] = useState("");
 const [cinError, setCinError] = useState("");
 const [emailError, setEmailError] = useState("");
+const [passError, setPassError] = useState("");
 
 
 
@@ -28,7 +30,7 @@ const [emailError, setEmailError] = useState("");
         setId(localStorage.getItem("userId"));
       }
     }, []);
-    console.log("idddd", id);
+    // console.log("idddd", id);
 
 
    
@@ -43,7 +45,7 @@ const [emailError, setEmailError] = useState("");
         const response = await axios.get(`https://adminpfe.adaptable.app/Chauff/searchchauf/${id}`);
         if(response.status===200){
        setform({ ...response.data })
-       console.log("data" , response.data)
+      //  console.log("data" , response.data)
         }
       }
 
@@ -55,6 +57,7 @@ const [emailError, setEmailError] = useState("");
         })
       
       }
+      
 
 
       const handleSubmit = e => {
@@ -63,7 +66,7 @@ const [emailError, setEmailError] = useState("");
       
       const data = new FormData();
       data.append('photoAvatar',e.target.photoAvatar.files[0]);
-      console.log("fileeeeee",photoAvatar)
+      // console.log("fileeeeee",photoAvatar)
       for (const key in form) {
         data.append(key, form[key]);
       }
@@ -94,10 +97,10 @@ const [emailError, setEmailError] = useState("");
           .then(response => {
          
         
-          console.log("file",data)
+          // console.log("file",data)
             //navigate("/users")
             router.push("/profile");
-            console.log(response.Nom)
+            // console.log(response.Nom)
       
             
           
@@ -126,6 +129,47 @@ const [emailError, setEmailError] = useState("");
       })
       
         }
+
+
+
+        const handleInputChange = e => {
+          const { name, value } = e.target;
+         
+          setForme(prevForme => ({ ...prevForme, [name]: value }));
+        };
+
+     
+        
+
+
+        const handleSubmits = e => {
+          e.preventDefault();
+        
+          const data = {
+            oldPassword: forme.oldPassword,
+            newPassword: forme.newPassword,
+          };
+        
+          axios.put(`https://adminpfe.adaptable.app/Chauff/pass/${id}`, data)
+            .then(response => {
+              // Handle successful response
+              // For example, navigate to a new page
+              router.push("/profile");
+            })
+            .catch(err => {
+              // Handle error responses
+              if (err.response) {
+                if (err.response.status === 401) {
+                  setPassError("Ancien mot de passe est incorrect");
+                } else {
+                  setPassError("");
+                }
+              }
+            });
+        };
+        
+
+        
 
 
 
@@ -171,7 +215,7 @@ const [emailError, setEmailError] = useState("");
     <div className='hi'>
         <form action="" id="login" method="put" onSubmit={handleSubmit}>
        <div className="wrappere bg-white mt-sm-5">
-    <h4 className="pb-4 border-bottom">Account settings</h4>
+    <h4 className="pb-4 border-bottom">Paramètres du compte</h4>
     <div className="d-flex align-items-start py-3 border-bottom">
         <img   src={form.photoAvatar || ""}
             className="img" alt="" />
@@ -184,7 +228,7 @@ const [emailError, setEmailError] = useState("");
     type="file"
     onChange={e => setphotoAvatar(e.target.files[0])}
     name="photoAvatar"
-    className="btn button border"
+    className="ji"
     id="photoAvatar"
     
   />
@@ -225,6 +269,7 @@ const [emailError, setEmailError] = useState("");
                  placeholder="steve_@email.com" 
                  value={ form.email || ""} 
                  name="email"
+                 disabled
                  required />
                  {emailError && <label className="text-red-500">{emailError}</label>}
 
@@ -276,39 +321,74 @@ const [emailError, setEmailError] = useState("");
 
             </div>
 
-            <div className="col-md-6 pt-md-0 pt-3">
-    <label htmlFor="password">Nouveau Mot de Passe</label>
-    <input
-        type="text"
-        onChange={onChangeHandler}
-        className="bg-light form-control"
-        placeholder="Nouveau Mot de Passe"
-        name="password"
        
-       
-    />
-</div>
 
 
         </div>
         
         <div className="py-3 pb-4 border-bottom">
-            <button  type="submit" className="btn btn-primary mr-3">Save Changes</button>
+            <button  type="submit" className="btn btn-primary mr-3">Sauvegarder les modifications</button>
             
         </div>
+
+        
+
+
+
         <div className="d-sm-flex align-items-center pt-3" id="deactivate">
             <div>
                 <b>Desavtiver Votre Compte</b>
                
             </div>
             <div className="ml-auto">
-                <button className="btn danger" onClick={handleSubmite}>Deactivate</button>
+                <button className="btn danger" onClick={handleSubmite}>Désactiver</button>
             </div>
         </div>
+        
     </div>
 </div>
 
+
 </form>
+
+<form>
+<div className="wrappere bg-white mt-sm-5">
+<h3 className="pb-4 border-bottom">Modifier Mot De passe</h3>
+    <div className="col-md-6 pt-md-0 pt-3">
+      <label htmlFor="oldPassword">Ancien Mot de Passe</label>
+      <input
+        type="password" 
+        className="bg-light form-control"
+        placeholder="Ancien Mot de Passe"
+        name="oldPassword"
+        value={forme.oldPassword || ""}
+        onChange={handleInputChange} 
+      />
+      <div>
+      {passError && <label className="text-red-500">{passError}</label>}
+      </div>
+    </div>
+    <div className="col-md-6 pt-md-0 pt-3">
+      <label htmlFor="newPassword">Nouveau Mot de Passe</label>
+      <input
+        type="password" 
+        className="bg-light form-control"
+        placeholder="Nouveau Mot de Passe"
+        name="newPassword"
+        value={forme.newPassword || ""}
+        onChange={handleInputChange} 
+      />
+      
+    </div>
+    <div className="py-3 pb-4 border-bottom">
+      <button type="submit" className="btn btn-primary mr-3" onClick={handleSubmits}>
+        Modifier Mot De Passe
+      </button>
+    </div>
+  </div>
+</form>
+
+       
 
     </div>
   )

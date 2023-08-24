@@ -25,6 +25,7 @@ h4{
     height: 100px;
     border-radius: 6px;
     object-fit: cover;
+    
 }
 #img-section p,#deactivate p{
     font-size: 12px;
@@ -40,7 +41,7 @@ label{
     margin-bottom: 0;
     font-size: 14px;
     font-weight: 500;
-    color: #777;
+    color: #575757;
     padding-left: 3px;
 }
 

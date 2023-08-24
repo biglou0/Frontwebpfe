@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 
 import Link from "next/link";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useRef  } from "react";
 import { useRouter } from "next/router";
 import {
   FaMapMarkerAlt,
@@ -23,6 +23,8 @@ const Navbar = () => {
   const [redirected, setRedirected] = useState(false);
   const router = useRouter();
 
+  const lastActivityTime = useRef(new Date().getTime());
+
   useEffect(() => {
     const loggedIn = window.localStorage.getItem("isLoggedIn");
     setIsLoggedIn(loggedIn === "true"); // Convert the stored string value to a boolean
@@ -32,6 +34,41 @@ const Navbar = () => {
       setRedirected(true);
     }
   }, [isLoggedIn, router, redirected]);
+  
+  useEffect(() => {
+    const loggedIn = window.localStorage.getItem("isLoggedIn");
+    setIsLoggedIn(loggedIn === "true");
+  
+    // Update lastActivityTime on user activity
+    const updateActivityTime = () => {
+      lastActivityTime.current = new Date().getTime();
+    };
+  
+    window.addEventListener("mousemove", updateActivityTime);
+    window.addEventListener("keydown", updateActivityTime);
+  
+    return () => {
+      window.removeEventListener("mousemove", updateActivityTime);
+      window.removeEventListener("keydown", updateActivityTime);
+    };
+  }, []);
+
+  useEffect(() => {
+    const checkInactivity = setInterval(() => {
+      const currentTime = new Date().getTime();
+      const inactiveDuration = currentTime - lastActivityTime.current;
+      const inactivityThreshold = 2 * 60 * 1000; // 2 minutes in milliseconds
+  
+      if (inactiveDuration >= inactivityThreshold && isLoggedIn) {
+        logout();
+      }
+    }, 1000); // Check every 1 second
+  
+    return () => {
+      clearInterval(checkInactivity);
+    };
+  }, [isLoggedIn]);
+
   useEffect(() => {
     const loggedIn = window.localStorage.getItem("isLoggedIn");
     setIsLoggedIn(loggedIn === "true"); // Convert the stored string value to a boolean
