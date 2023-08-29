@@ -1,119 +1,100 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.wrapper {
-  padding: 20px; /* Adjusted padding for smaller screens */
-  border: 1px solid #ddd;
-  border-radius: 15px;
-  margin: 10px auto;
-  max-width: 100%; /* Ensure full width on small screens */
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Added a subtle box shadow */
+
+
+.wrappere{
+    padding: 30px 50px;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    margin: 10px auto;
+    max-width: 600px;
+    margin-left: 400px;
+}
+h4{
+    letter-spacing: -1px;
+    font-weight: 400;
+}
+.img{
+    width: 100px;
+    height: 100px;
+    border-radius: 6px;
+    object-fit: cover;
+    
+}
+#img-section p,#deactivate p{
+    font-size: 12px;
+    color: #777;
+    margin-bottom: 10px;
+    text-align: justify;
+}
+#img-section b,#img-section button,#deactivate b{
+    font-size: 14px; 
 }
 
-h4 {
-  letter-spacing: -1px;
-  font-weight: 400;
-  font-size: 1.2rem; /* Adjusted font size for smaller screens */
-  margin-bottom: 10px;
+label{
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 500;
+    color: #575757;
+    padding-left: 3px;
 }
 
-.img {
-  width: 100px;
-  height: 100px;
-  border-radius: 6px;
-  object-fit: cover;
+.form-control{
+    border-radius: 10px;
 }
 
-#img-section p,
-#deactivate p {
-  font-size: 12px;
-  color: #777;
-  margin-bottom: 10px;
-  text-align: justify;
-  line-height: 1.4;
+input[placeholder]{
+    font-weight: 500;
+    margin-left: 10px;
+}
+.form-control:focus{
+    box-shadow: none;
+    border: 1.5px solid #0779e4;
+}
+select{
+    display: block;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    height: 40px;
+    padding: 5px 10px;
+    /* -webkit-appearance: none; */
 }
 
-#img-section b,
-#img-section button,
-#deactivate b {
-  font-size: 14px;
+select:focus{
+    outline: none;
 }
-
-label {
-  margin-bottom: 0;
-  font-size: 14px;
-  font-weight: 500;
-  color: #575757;
-  padding-left: 3px;
+.button{
+    background-color: #fff;
+    color: #0779e4;
 }
-
-.form-control {
-  border-radius: 10px;
-  width: 100%; /* Make inputs full width */
-  padding: 10px; /* Increased padding for better touch interaction */
-  border: 1px solid #ddd;
-  font-weight: 500;
+.button:hover{
+    background-color: #0779e4;
+    color: #fff;
 }
-
-.form-control:focus {
-  outline: none;
-  border-color: #0779e4; /* Changed to border-color for focus effect */
-  box-shadow: 0px 0px 5px rgba(0, 119, 228, 0.4); /* Added a slight box shadow */
+.btn-primary{
+    background-color: #0779e4;
 }
-
-select {
-  display: block;
-  width: 100%;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  height: 40px;
-  padding: 5px 10px;
-  font-size: 14px;
+.danger{
+    background-color: #fff;
+    color: #e20404;
+    border: 1px solid #ddd;
 }
-
-.select:focus {
-  outline: none;
+.danger:hover{
+    background-color: #e20404;
+    color: #fff;
 }
-
-.button,
-.btn-primary {
-  background-color: #0779e4;
-  color: #fff;
-  border: none;
-  border-radius: 10px;
-  padding: 8px 15px;
-  text-align: center;
-  cursor: pointer;
-  font-size: 14px;
-  transition: background-color 0.3s, color 0.3s;
-}
-
-.button:hover,
-.btn-primary:hover {
-  background-color: #0457a0; /* Darker shade on hover for better visibility */
-}
-
-.danger {
-  background-color: #fff;
-  color: #e20404;
-  border: 1px solid #ddd;
-}
-
-.danger:hover {
-  background-color: #e20404;
-  color: #fff;
-}
-
-@media (max-width: 576px) {
-  .wrapper {
-    padding: 15px; /* Adjusted padding for smaller screens */
-  }
-  #deactivate {
-    line-height: 1.5;
-  }
+@media(max-width:576px){
+    .wrapper{
+        padding: 25px 20px;
+    }
+    #deactivate{
+        line-height: 18px;
+    }
 }

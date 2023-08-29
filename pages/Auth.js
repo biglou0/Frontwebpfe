@@ -152,7 +152,7 @@ const Auth = () => {
 						<div className="card-3d-wrap mx-auto">
 							<div className="card-3d-wrapper">
 
-								<form className="card-front" action="" id="login" method="post" onSubmit={handleSubmite}>
+								<form className="card-front" action="" id="loginn" method="post" onSubmit={handleSubmite}>
 								<div >
 									<div className="center-wrap">
 										<div className="section text-center">
@@ -210,7 +210,7 @@ const Auth = () => {
 											<h4 className="mb-4 pb-3">MOT DE PASSE OUBLIÉ?</h4>
 												
 											<div className="form-group mt-2">
-												<input type="email" name="logemail" className="form-style" placeholder="Email" id="logemail" autoComplete="off"
+												<input type="email" name="logmail" className="form-style" placeholder="Email" id="logmail" autoComplete="off"
 												 onChange={e => setemail(e.target.value)}
 												 value={email || ""}
 												 required
@@ -222,7 +222,7 @@ const Auth = () => {
                                          
 
 											<button
-            id="sub_btn" 
+            id="sub_btnn" 
             type="submit" 
             value="login"
 			className="btn mt-4"
