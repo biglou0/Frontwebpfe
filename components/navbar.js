@@ -57,7 +57,7 @@ const Navbar = () => {
     const checkInactivity = setInterval(() => {
       const currentTime = new Date().getTime();
       const inactiveDuration = currentTime - lastActivityTime.current;
-      const inactivityThreshold = 2 * 60 * 1000; // 2 minutes in milliseconds
+      const inactivityThreshold = 1 * 60 * 60 * 1000; // 1 heure en milliseconds
   
       if (inactiveDuration >= inactivityThreshold && isLoggedIn) {
         logout();
@@ -126,7 +126,7 @@ const Navbar = () => {
             </div>
             <div className="flex flex-row space-x-2">
               <FaRegClock className="w-5 h-5 text-gray-500" />
-              <p>Mon-Sat: 07:00 - 17:00</p>
+              <p>Lun-Sam: 07:00 - 17:00</p>
             </div>
           </div>
           <div className="flex flex-row space-x-4  justify-center items-center ">
@@ -271,7 +271,7 @@ const Navbar = () => {
                 } md:hover:text-yellow-500 md:p-0`}
                 onClick={() => handleLinkClick("Profile")}
               >
-                Profile
+                PROFILE
               </a>
             </Link>
           </li>
@@ -286,7 +286,7 @@ const Navbar = () => {
                 } md:hover:text-yellow-500 md:p-0`}
                 onClick={() => handleLinkClick("History")}
               >
-                History
+                HISTORIQUE
               </a>
             </Link>
           </li>

@@ -44,7 +44,7 @@ const footer = () => {
               <div className="space-y-2">
                 <p className="text-gray-500">HEURES D'OUVERTURE</p>
                 <p className="text-gray-600 font-medium">
-                  MON-SAT: 07:00 - 17:00 SUN: CLOSED
+                  LUN-SAM: 07:00 - 17:00
                 </p>
               </div>
             </div>
@@ -110,13 +110,13 @@ const footer = () => {
                 </div>
                 <div className="flex flex-row items-center space-x-4">
                   <FaCalendarWeek className="w-6 h-6 text-gray-500 " />
-                  <p className="text-gray-500">Mon-Sat: 07:00 - 17:00</p>
+                  <p className="text-gray-500">Lun-Sam: 07:00 - 17:00</p>
                 </div>
               </div>
             </div>
             <div className="col-span-1 space-y-8">
               <div className="flex flex-col space-y-2">
-                <p className="text-gray-600 font-medium">SUBSCRIBE</p>
+                <p className="text-gray-600 font-medium">S'ABONNER</p>
                 <p className="border-solid border border-amber-500  w-1/4 "></p>
               </div>
               <div className="flex flex-col space-y-4">
@@ -131,7 +131,7 @@ const footer = () => {
                   type="submit"
                   className="text-white bg-amber-700 hover:bg-amber-800 focus:ring-4 focus:ring-blue-300 font-medium   w-full sm:w-auto px-5 py-2.5 text-center "
                 >
-                  Submit
+                  Soumettre
                 </button>
               </div>
             </div>
