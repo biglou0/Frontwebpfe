@@ -14,6 +14,7 @@ import {
 import Image from "next/legacy/image";
 // import Logo from "../public/logo.png";
 import Logoo from "../public/logofi.png";
+import Head from 'next/head';
 
 
 const Navbar = () => {
@@ -112,7 +113,11 @@ const Navbar = () => {
   
   
   return (
+    
     <div>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
       <div className="bg-gray-100 ">
         <div className="container mx-auto lg:flex lg:flex-row  lg:justify-between justify-center items-center space-y-2  text-gray-500 py-3 w-full">
           <div className="lg:flex lg:flex-row flex flex-col justify-center items-center space-x-12 lg:space-y-0 space-y-2">
