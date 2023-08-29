@@ -4,6 +4,8 @@ import LockIcon from '@mui/icons-material/Lock';
 import EmailIcon from '@mui/icons-material/Email';
 import axios from "axios";
 import { useRouter } from "next/router";
+import Head from 'next/head';
+
 
 
 const Auth = () => {
@@ -136,7 +138,9 @@ const Auth = () => {
     <div>
         
 		
-		
+		<Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
 	
 
 	<div className="hi">
