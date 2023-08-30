@@ -33,7 +33,7 @@ const Contact = () => {
     e.preventDefault()
 
     const phoneRegex = /^[0-9]{8,14}$/;
-    if (!phoneRegex.test(phone)) {
+    if (!phoneRegex.test(Tel)) {
       setPhoneError("La longueur doit être entre 8 et 14");
     } else {
       setPhoneError(""); // Reset phone error if valid
