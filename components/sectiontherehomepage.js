@@ -11,7 +11,7 @@ const ContentThere = () => {
       <div className="text-center space-y-3 ">
         <p className="text-xl font-medium text-amber-600">POURQUOI NOUS CHOISIR</p>
         <p className="text-4xl font-light text-gray-600">
-        Fièrement au service de la région d'Araina depuis 2023
+        Fièrement au service de la région Djerba depuis 2023
         </p>
       </div>
       

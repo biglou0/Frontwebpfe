@@ -144,14 +144,14 @@ const Contact = () => {
             </div>
             <div className="col-span-1 row-span-3 p-4  border">
               <label  className="block mb-2  text-gray-900 ">
-                Your message
+              Votre Message
               </label>
               <textarea
                 id="message"
                 rows="4"
                 style={{ width: "100%", height: "230px", resize: "none" }}
                 className="block p-2.5 w-full  text-gray-900  "
-                placeholder="Leave a comment..."
+                placeholder="Laissez un commentaire..."
                 value={Message || ""}
                   maxLength={3000}
                   onInput={handleInputChange}

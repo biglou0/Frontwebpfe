@@ -57,7 +57,7 @@ const ContentTwo = () => {
           >
             <div className="bg-black  hover:bg-opacity-5 bg-opacity-30 w-full h-full  flex items-end justify-start">
               <p className="text-white text-2xl font-medium p-8">
-              SERVICE D'AFFRET
+              SERVICE D'AFFERT
               </p>
             </div>
           </div>

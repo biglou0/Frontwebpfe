@@ -45,6 +45,7 @@ const Contents = () => {
                 <button
                   type="button"
                   className="text-white  bg-amber-600 hover:bg-amber-800   rounded-3xl  px-8 py-3 text-center mr-2 mb-2 "
+                  style={{ marginTop: '70px' }}
                 >
                   CONTACTEZ-NOUS
                 </button>
@@ -52,16 +53,16 @@ const Contents = () => {
 
           
         </div>
-        <div className="grid grid-cols-2 grid-rows-2 gap-2">
+        <div className="grid grid-cols-2 grid-rows-2 gap-2" style={{ marginLeft: '70px'}}>
         <div className="col-span-1 row-span-2">
-        <Swiper
+        <Swiper 
         navigation={true}
         autoplay={{
           delay: 2500,
           disableOnInteraction: false,
         }}
         modules={[Autoplay, Navigation]}
-        style={{ height: '500px', width: '100%' }} 
+        style={{ height: '500px', width: '100%',marginLeft: '160px' }} 
       >
          <SwiperSlide>
           <div
